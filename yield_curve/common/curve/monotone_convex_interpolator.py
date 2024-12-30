@@ -13,7 +13,7 @@
 
 from math import exp, log, pow
 
-from yield_curve.common.curve.CurveInterpolator import CurveInterpolator
+from yield_curve.common.curve.curve_interpolator import CurveInterpolator
 
 
 class MonotoneConvexInterpolator(CurveInterpolator):

@@ -11,36 +11,38 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from yield_curve.common.curve.CurveInterpolator import CurveInterpolator, CurveException
+from math import exp, log
+
+from yield_curve.common.curve.curve_interpolator import CurveInterpolator, CurveException
 
 
-class FlatForwardInterpolator(CurveInterpolator):
+class LinearDiscountFactorInterpolator(CurveInterpolator):
     def __init__(self, curve):
         """
-        Initialize the FlatForwardInterpolator with a Curve instance.
+        Initialize the LinearDiscountFactorInterpolator with a Curve instance.
         :param curve: Instance of a class implementing the Curve interface.
         """
         self.curve = curve
         self.x = None
         self.y = None
-        self.rt = None
+        self.df = None
 
     def initialize(self):
         """
         Prepare any transformations or setup required for interpolation.
-        This method initializes x, y, and rt arrays based on the given curve.
+        This method initializes x, y, and df arrays based on the given curve.
         """
         self.x = self.curve.get_x()
         self.y = self.curve.get_y()
-        self.rt = [0] * len(self.x)
+        self.df = [0] * len(self.x)
 
         for i in range(len(self.x)):
-            t = self.x[i] - self.x[0]
-            self.rt[i] = self.y[i] * t
+            t = (self.x[i] - self.x[0]) / 365.0
+            self.df[i] = exp(-self.y[i] * t)
 
     def interpolate(self, low_index: int, ax: float) -> float:
         """
-        Interpolate a value using the flat forward method.
+        Interpolate a value using the linear discount factor method.
         :param low_index: The lower index for interpolation.
         :param ax: The value to interpolate.
         :return: Interpolated value as a float.
@@ -48,9 +50,9 @@ class FlatForwardInterpolator(CurveInterpolator):
         """
         x1 = self.x[low_index]
         x2 = self.x[low_index + 1]
-        y1 = self.rt[low_index]
-        y2 = self.rt[low_index + 1]
-        t = ax - self.x[0]
+        y1 = self.df[low_index]
+        y2 = self.df[low_index + 1]
+        t = (ax - self.x[0]) / 365.0
 
         # Special case when t == 0
         if t == 0:
@@ -61,4 +63,4 @@ class FlatForwardInterpolator(CurveInterpolator):
             raise CurveException("Not bracketed")
 
         ay = y1 + (ax - x1) * ((y2 - y1) / (x2 - x1))
-        return ay / t
+        return -log(ay) / t

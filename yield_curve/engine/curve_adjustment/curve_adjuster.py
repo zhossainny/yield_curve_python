@@ -19,7 +19,7 @@ import numpy as np
 from yield_curve.common.curve.Curve import Curve
 from yield_curve.common.curve.CurveImp import CurveImpl
 from yield_curve.common.curve.Exception.EngineException import EngineException
-from yield_curve.common.curve.InterpolationMethod import InterpolationMethod
+from yield_curve.common.curve.interpolation_method import InterpolationMethod
 from yield_curve.engine.curve_adjustment.curve_adjuster_parameters import CurveAdjusterParams
 from yield_curve.engine.exception.coonvergence_exception import ConvergenceException
 

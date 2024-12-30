@@ -13,15 +13,15 @@
 
 from yield_curve.common.curve.Exception.CurveException import CurveException
 from yield_curve.common.curve.Exception.CurveExtrapolationException import CurveExtrapolationException
-from yield_curve.common.curve import Curve, CurveInterpolator
+from yield_curve.common.curve import Curve, curve_interpolator
 from yield_curve.common.curve.Curve import Curve
-from yield_curve.common.curve.InterpolationMethod import InterpolationMethod
-from yield_curve.common.curve import FlatForwardInterpolator
-from yield_curve.common.curve.LinearDiscountFactorInterpolator import LinearDiscountFactorInterpolator
-from yield_curve.common.curve.LinearZeroInterpolator import LinearZeroInterpolator
+from yield_curve.common.curve.interpolation_method import InterpolationMethod
+from yield_curve.common.curve import flat_forward_interpolator
+from yield_curve.common.curve.linear_discount_factor_interpolator import LinearDiscountFactorInterpolator
+from yield_curve.common.curve.linear_zero_interpolator import LinearZeroInterpolator
 from yield_curve.common.curve.CubicInterpolator import CubicInterpolator
-from yield_curve.common.curve.MonotoneConvexInterpolator import MonotoneConvexInterpolator
-from yield_curve.common.curve.FlatForwardInterpolator import FlatForwardInterpolator
+from yield_curve.common.curve.monotone_convex_interpolator import MonotoneConvexInterpolator
+from yield_curve.common.curve.flat_forward_interpolator import FlatForwardInterpolator
 import numpy as np  # For copying arrays
 
 from yield_curve.common.util.functions import binary_search

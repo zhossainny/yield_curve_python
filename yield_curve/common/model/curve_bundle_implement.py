@@ -14,11 +14,11 @@
 from datetime import date
 from typing import Dict
 from yield_curve.common.curve.Curve import Curve
-from yield_curve.common.curve.CurveImmutable import CurveImmutable
-from yield_curve.common.model.CurveBundle import CurveBundle
+from yield_curve.common.curve.curve_implementation import CurveImplementation
+from yield_curve.common.model.curve_bundle_abs import CurveBundle
 
 
-class CurveBundleImmutable(CurveBundle):
+class CurveBundleImplement(CurveBundle):
     """
     Immutable implementation of the CurveBundle interface.
     """
@@ -110,7 +110,7 @@ class CurveBundleImmutable(CurveBundle):
 
     def __eq__(self, other):
         """Equality check for CurveBundleImmutable."""
-        if not isinstance(other, CurveBundleImmutable):
+        if not isinstance(other, CurveBundleImplement):
             return False
 
         return (
@@ -151,8 +151,8 @@ class CurveBundleImmutable(CurveBundle):
         )
 
     @staticmethod
-    def to_curve_immutable(curve: Curve) -> CurveImmutable:
+    def to_curve_immutable(curve: Curve) -> CurveImplementation:
         """Convert a Curve to an immutable version if not already immutable."""
-        if isinstance(curve, CurveImmutable):
+        if isinstance(curve, CurveImplementation):
             return curve
-        return CurveImmutable(curve)
+        return CurveImplementation(curve)

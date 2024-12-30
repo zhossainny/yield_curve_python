@@ -18,7 +18,7 @@ from datetime import datetime, date
 from yield_curve.common.curve.Exception.EngineException import EngineException
 from yield_curve.engine.calib_instrument.calibration_context import CalibrationContext
 from yield_curve.engine.calib_instrument.quote import Quote
-from yield_curve.engine.pricing_functions.SwapPricingFunction import SwapPricingFunction
+from yield_curve.engine.pricing_functions.swap_pricing_function import SwapPricingFunction
 from yield_curve.engine.pricing_functions.abs_pricing_function import PricingFunction
 
 

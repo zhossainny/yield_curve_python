@@ -14,8 +14,8 @@
 import unittest
 import numpy as np
 from yield_curve.common.curve.CurveImp import CurveImpl
-from yield_curve.common.curve.LinearDiscountFactorInterpolator import LinearDiscountFactorInterpolator
-from yield_curve.common.curve.InterpolationMethod import InterpolationMethod
+from yield_curve.common.curve.linear_discount_factor_interpolator import LinearDiscountFactorInterpolator
+from yield_curve.common.curve.interpolation_method import InterpolationMethod
 
 
 class TestLinearDiscountFactorInterpolator(unittest.TestCase):

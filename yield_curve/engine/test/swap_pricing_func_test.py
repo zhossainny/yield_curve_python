@@ -17,11 +17,11 @@ from datetime import date
 import numpy as np
 
 from yield_curve.common.curve.CurveImp import CurveImpl
-from yield_curve.common.curve.InterpolationMethod import InterpolationMethod
+from yield_curve.common.curve.interpolation_method import InterpolationMethod
 from yield_curve.engine.calib_instrument.calibration_context import CalibrationContext
 from yield_curve.engine.curve_adjustment.curve_adjuster import CurveAdjuster
 from yield_curve.engine.curve_adjustment.curve_adjuster_parameters import CurveAdjusterParams
-from yield_curve.engine.pricing_functions.SwapPricingFunction import SwapPricingFunction
+from yield_curve.engine.pricing_functions.swap_pricing_function import SwapPricingFunction
 from yield_curve.engine.test.calib_context_test import CalibrationContextTest
 
 

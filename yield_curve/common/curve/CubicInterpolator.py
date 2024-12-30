@@ -11,7 +11,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from yield_curve.common.curve.CurveInterpolator import CurveException, CurveInterpolator
+from yield_curve.common.curve.curve_interpolator import CurveException, CurveInterpolator
 
 
 class CubicInterpolator(CurveInterpolator):

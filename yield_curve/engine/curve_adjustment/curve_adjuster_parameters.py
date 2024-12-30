@@ -14,7 +14,7 @@
 from typing import List
 
 from yield_curve.common.curve.Exception.EngineException import EngineException
-from yield_curve.common.curve.InterpolationMethod import InterpolationMethod
+from yield_curve.common.curve.interpolation_method import InterpolationMethod
 
 
 class CurveAdjusterParams:
