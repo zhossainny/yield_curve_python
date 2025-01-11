@@ -29,3 +29,14 @@ $$
 ## Description
 The `LinearZeroInterpolator` performs linear interpolation directly on the zero rates of a curve. It calculates an intermediate value using known data points. This method ensures smooth and precise zero-rate estimation for financial curve modeling.
 
+# Monotone Convex Interpolator
+
+The Monotone Convex Interpolator uses the following mathematical formulas for precise curve interpolation.
+
+### Formula: Discrete Forward Rate
+```math
+f_{\text{discrete},i} = \frac{\text{term}_i \cdot \text{value}_i - \text{term}_{i-1} \cdot \text{value}_{i-1}}{\text{term}_i - \text{term}_{i-1}}
+
+
+
+
